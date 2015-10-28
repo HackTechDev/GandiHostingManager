@@ -1,22 +1,22 @@
 <?php
 
-function createQuestionAnswer () {
-    $question = $_POST["question"];
-    $answer = $_POST["answer"];
+function createHosting() {
+    $instance = $_POST["instance"];
+    $description = $_POST["description"];
 
     if(isset($_POST['insert'])){
         global $wpdb;
         $wpdb->insert(
-            'wp_quizzcontest_qa',
-            array('question' => $question, 'answer' => $answer),
+            'wp_gandihosting',
+            array('instance' => $instance, 'description' => $description),
             array('%s', '%s') 			
         );
-        $message .= "Question/réponse ajouter";
+        $message .= "Gandi Hosting added";
     }
 ?>
     <link type="text/css" href="<?php echo WP_PLUGIN_URL; ?>/css/style-admin.css" rel="stylesheet" />
     <div class="wrap">
-        <h2>Ajouter une Question/Réponse</h2>
+        <h2>Add a Gandi Hosting</h2>
         <?php 
             if (isset($message)): ?>
                 <div class="updated">
@@ -28,15 +28,15 @@ function createQuestionAnswer () {
         <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
             <table class='wp-list-table widefat fixed'>
                 <tr>
-                    <th>Question</th>
+                    <th>Instance</th>
                     <td>
-                        <input type="text" name="question" value="<?php echo $question;?>"/>
+                        <input type="text" name="instance" value="<?php echo $instance;?>"/>
                     </td>
                 </tr>
                 <tr>
-                    <th>Réponse</th>
+                    <th>Description</th>
                     <td>
-                        <input type="text" name="answer" value="<?php echo $answer;?>"/>
+                        <input type="text" name="description" value="<?php echo $description;?>"/>
                     </td>
                 </tr>
      

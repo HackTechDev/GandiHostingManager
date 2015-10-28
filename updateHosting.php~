@@ -1,24 +1,24 @@
 <?php
-function updateQuestionAnswer () {
+function updateHosting() {
     global $wpdb;
     $id = $_GET["id"];
-    $question = $_POST["question"];
-    $answer = $_POST["answer"];
+    $instance = $_POST["instance"];
+    $description = $_POST["description"];
 
     if(isset($_POST['update'])) {	
         
-        $wpdb->update( $wpdb->prefix . 'quizzcontest_qa',
-            array('question' => $question, 'answer' => $answer), array( 'id' => $id )
+        $wpdb->update( $wpdb->prefix . 'gandihosting',
+            array('instance' => $instance, 'description' => $description), array( 'id' => $id )
         );	
     }
     else if(isset($_POST['delete'])) {	
-        $wpdb->query($wpdb->prepare("DELETE FROM " . $wpdb->prefix . "quizzcontest_qa WHERE id = %s",$id));
+        $wpdb->query($wpdb->prepare("DELETE FROM " . $wpdb->prefix . "gandihosting WHERE id = %s",$id));
     }
     else{
-        $questionanswers = $wpdb->get_results($wpdb->prepare("SELECT id, question, answer from wp_quizzcontest_qa where id=%s",$id));
-        foreach ($questionanswers as $questionanswer ) {
-            $question = $questionanswer->question;
-            $answer = $questionanswer->answer;
+        $instancedescriptions = $wpdb->get_results($wpdb->prepare("SELECT id, instance, description from wp_gandihosting where id=%s",$id));
+        foreach ($instancedescriptions as $instancedescription ) {
+            $instance = $instancedescription->instance;
+            $description = $instancedescription->description;
         }
     }
     ?>
@@ -28,26 +28,26 @@ function updateQuestionAnswer () {
 
     <?php if($_POST['delete']){ ?>
         <div class="updated"><p>Suppression Question/Réponse</p></div>
-           <a href="<?php echo admin_url('admin.php?page=listQuestionAnswer')?>">&laquo; Retour à la liste des Questions/Réponses</a>
+           <a href="<?php echo admin_url('admin.php?page=listGandiHosting')?>">&laquo; Return to the Gandi Hosting list</a>
 
     <?php } else if($_POST['update']) { ?>
         <div class="updated"><p>Modification Question/Réponse</p></div>
-            <a href="<?php echo admin_url('admin.php?page=listQuestionAnswer')?>">&laquo; Retour à la liste des Questions/Réponses</a>
+            <a href="<?php echo admin_url('admin.php?page=listGandiHosting')?>">&laquo; Return to the Gandi Hosting list</a>
 
     <?php } else { ?>
-        <a href="<?php echo admin_url('admin.php?page=listQuestionAnswer')?>">&laquo; Retour à la liste des Questions/Réponses</a>
+        <a href="<?php echo admin_url('admin.php?page=listGandiHosting')?>">&laquo; Return to the Gandi Hosting list</a>
         <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
             <table class='wp-list-table widefat fixed'>
                 <tr>
                     <th>Question</th>
                     <td>
-                        <input type="text" name="question" value="<?php echo $question;?>"/>
+                        <input type="text" name="instance" value="<?php echo $instance;?>"/>
                     </td>
                 </tr>
                 <tr>
                     <th>Question</th>
                     <td>
-                        <input type="text" name="answer" value="<?php echo $answer;?>"/>
+                        <input type="text" name="description" value="<?php echo $description;?>"/>
                     </td>
                 </tr>
 
