@@ -227,8 +227,8 @@ add_filter("plugin_action_links_$plugin", 'gandihosting_settings_link' );
 
 
 define('ROOTDIR', plugin_dir_path(__FILE__));
-require_once(ROOTDIR . 'listHosting.php');
-require_once(ROOTDIR . 'createHosting.php');
-require_once(ROOTDIR . 'updateHosting.php');
+require_once(ROOTDIR . 'hosting/listHosting.php');
+require_once(ROOTDIR . 'hosting/createHosting.php');
+require_once(ROOTDIR . 'hosting/updateHosting.php');
 
 ?>
