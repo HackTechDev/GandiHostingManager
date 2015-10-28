@@ -9,7 +9,7 @@ function listHosting() {
     global $wpdb;
     $rows = $wpdb->get_results("SELECT id, instance, description from wp_gandihosting");
     echo "<table class='wp-list-table widefat fixed'>";
-    echo "<tr><th>id</th><th>Instance</th><th>Description</th><th>&nbsp;</th></tr>";
+    echo "<tr><th><b>Id</b></th><th><b>Instance</b></th><th><b>Description</b></th><th><b>Action</b></th></tr>";
     foreach ($rows as $row ){
         echo "<tr>";
         echo "<td>$row->id</td>";
