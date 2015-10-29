@@ -1,0 +1,6 @@
+Installation de XML_RPC2 : 
+
+# apt-get install php-pear
+# pear install XML_RPC2
+
+
