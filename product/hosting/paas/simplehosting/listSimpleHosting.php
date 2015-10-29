@@ -15,7 +15,10 @@ function listSimpleHosting() {
         echo "<td>$row->id</td>";
         echo "<td>$row->instance</td>";	
         echo "<td>$row->description</td>"; 
-        echo "<td><a href='".admin_url('admin.php?page=updateSimpleHosting&id=' . $row->id)."'>Update</a></td>";
+        echo "<td>";
+        echo "<a href='".admin_url('admin.php?page=updateSimpleHosting&id=' . $row->id)."'>Update</a> | ";
+        echo "<a href='".admin_url('admin.php?page=viewSimpleHosting&id=' . $row->id)."'>View</a>";
+        echo "</td>";
         echo "</tr>";}
     echo "</table>";
     ?>
