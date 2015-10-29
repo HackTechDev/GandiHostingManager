@@ -7,11 +7,9 @@ function getAPIInfo() {
             array( 'prefix' => 'version.', 'sslverify' => False )
         );
 
-    $apikey = 'api_key';
-
     //$result = $version_api->info($apikey);
 
-    $result = $version_api->__call("info", $apikey);
+    $result = $version_api->__call("info", APIKEY);
     return $result['api_version'];
 }
 

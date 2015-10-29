@@ -225,7 +225,7 @@ add_filter("plugin_action_links_$plugin", 'gandihosting_settings_link' );
 
 
 define('ROOTDIR', plugin_dir_path(__FILE__));
-
+require_once(ROOTDIR . 'api/general/configAPI.php');
 require_once(ROOTDIR . 'api/general/general.php');
 
 require_once(ROOTDIR . 'product/hosting/indexHosting.php');
