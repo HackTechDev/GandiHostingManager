@@ -106,12 +106,16 @@ if ( is_admin() ) {
     function gandihosting_menu() {
         add_options_page('Gandi Hosting Manager', 'Gandi Hosting Manager', 'administrator', basename(__FILE__), 'gandihosting_option');
 
-        add_menu_page('Gandi Hosting Manager', 'Gandi Hosting Manager', 'manage_options', 'listSimpleHosting', 'listSimpleHosting');
+        add_menu_page('Gandi Hosting Manager', 'Gandi Hosting Manager', 'manage_options', 'indexSimpleHosting', 'indexSimpleHosting');
         
         add_submenu_page('gandihosting_list', 'Add New Hosting', 'Add New', 'manage_options', 'createSimpleHosting', 'createSimpleHosting'); 
         
         //this submenu is HIDDEN, however, we need to add it anyways
-        add_submenu_page(null, 'Update Hosting', 'Update', 'manage_options', 'updateSimpleHosting', 'updateSimpleHosting');
+        add_submenu_page(null, 'Update Simple Hosting', 'Update', 'manage_options', 'updateSimpleHosting', 'updateSimpleHosting');
+        add_submenu_page(null, 'Config Simple Hosting', 'Update', 'manage_options', 'configSimpleHosting', 'configSimpleHosting');
+        add_submenu_page(null, 'List Simple Hosting', 'Update', 'manage_options', 'listSimpleHosting', 'listSimpleHosting');
+
+
 
     }
 
@@ -222,6 +226,7 @@ add_filter("plugin_action_links_$plugin", 'gandihosting_settings_link' );
 
 define('ROOTDIR', plugin_dir_path(__FILE__));
 require_once(ROOTDIR . 'product/hosting/paas/simplehosting/indexSimpleHosting.php');
+require_once(ROOTDIR . 'product/hosting/paas/simplehosting/configSimpleHosting.php');
 require_once(ROOTDIR . 'product/hosting/paas/simplehosting/listSimpleHosting.php');
 require_once(ROOTDIR . 'product/hosting/paas/simplehosting/createSimpleHosting.php');
 require_once(ROOTDIR . 'product/hosting/paas/simplehosting/updateSimpleHosting.php');
