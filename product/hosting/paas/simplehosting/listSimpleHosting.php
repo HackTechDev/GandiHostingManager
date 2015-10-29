@@ -1,10 +1,10 @@
 <?php
-function listHosting() {
+function listSimpleHosting() {
 ?>
     <link type="text/css" href="<?php echo WP_PLUGIN_URL; ?>/css/style-admin.css" rel="stylesheet" />
     <div class="wrap">
-        <h2>Hosting</h2>
-            <a href="<?php echo admin_url('admin.php?page=createHosting'); ?>">Add a hosting</a>
+        <h2>Simple Hosting list</h2>
+            <a href="<?php echo admin_url('admin.php?page=createSimpleHosting'); ?>">Add a Simple Hosting</a>
     <?php
     global $wpdb;
     $rows = $wpdb->get_results("SELECT id, instance, description from wp_gandihosting");
@@ -15,7 +15,7 @@ function listHosting() {
         echo "<td>$row->id</td>";
         echo "<td>$row->instance</td>";	
         echo "<td>$row->description</td>"; 
-        echo "<td><a href='".admin_url('admin.php?page=updateHosting&id=' . $row->id)."'>Update</a></td>";
+        echo "<td><a href='".admin_url('admin.php?page=updateSimpleHosting&id=' . $row->id)."'>Update</a></td>";
         echo "</tr>";}
     echo "</table>";
     ?>

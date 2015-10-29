@@ -1,5 +1,5 @@
 <?php
-function updateHosting() {
+function updateSimpleHosting() {
     global $wpdb;
     $id = $_GET["id"];
     $instance = $_POST["instance"];
@@ -24,28 +24,28 @@ function updateHosting() {
     ?>
     <link type="text/css" href="<?php echo WP_PLUGIN_URL; ?>/css/style-admin.css" rel="stylesheet" />
     <div class="wrap">
-    <h2>Question/Réponse</h2>
+    <h2>Simple Hosting update</h2>
 
     <?php if($_POST['delete']){ ?>
-        <div class="updated"><p>Delete Gandi Hosting</p></div>
-           <a href="<?php echo admin_url('admin.php?page=listGandiHosting')?>">&laquo; Return to the Gandi Hosting list</a>
+        <div class="updated"><p>Delete Simple Hosting</p></div>
+           <a href="<?php echo admin_url('admin.php?page=listSimpleHosting')?>">&laquo; Return to the Simple Hosting list</a>
 
     <?php } else if($_POST['update']) { ?>
-        <div class="updated"><p>Update Gandi Hosting</p></div>
-            <a href="<?php echo admin_url('admin.php?page=listHosting')?>">&laquo; Return to the Gandi Hosting list</a>
+        <div class="updated"><p>Update Simple Hosting</p></div>
+            <a href="<?php echo admin_url('admin.php?page=listSimpleHosting')?>">&laquo; Return to the Simple Hosting list</a>
 
     <?php } else { ?>
-        <a href="<?php echo admin_url('admin.php?page=listHosting')?>">&laquo; Return to the Gandi Hosting list</a>
+        <a href="<?php echo admin_url('admin.php?page=listSimpleHosting')?>">&laquo; Return to the Simple Hosting list</a>
         <form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
             <table class='wp-list-table widefat fixed'>
                 <tr>
-                    <th>Question</th>
+                    <th>Instance</th>
                     <td>
                         <input type="text" name="instance" value="<?php echo $instance;?>"/>
                     </td>
                 </tr>
                 <tr>
-                    <th>Question</th>
+                    <th>Description</th>
                     <td>
                         <input type="text" name="description" value="<?php echo $description;?>"/>
                     </td>
@@ -53,7 +53,7 @@ function updateHosting() {
 
             </table>
             <input type='submit' name="update" value='Save' class='button'> &nbsp;&nbsp;
-            <input type='submit' name="delete" value='Delete' class='button' onclick="return confirm('Do you want to delete this Gandi Hosting?')">
+            <input type='submit' name="delete" value='Delete' class='button' onclick="return confirm('Do you want to delete this Simple Hosting?')">
         </form>
     <?php }?>
 
