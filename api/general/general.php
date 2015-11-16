@@ -32,5 +32,16 @@ function iaasList() {
    
 }
 
+function iaasImageList() {
+     $apiConnect = XML_RPC2_Client::create(
+            'https://rpc.gandi.net/xmlrpc/',
+            array( 'prefix' => 'hosting.', 'sslverify' => False )
+        );
+
+    $result = $apiConnect->__call('image.list', array(APIKEY));
+    return $result;
+   
+}
+
 
 ?>

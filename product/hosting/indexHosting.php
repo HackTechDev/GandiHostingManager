@@ -13,6 +13,7 @@ function indexHosting() {
             <br/>
             <a href="<?php echo admin_url('admin.php?page=configSimpleHosting'); ?>">Simple Hosting configuration</a>
             <br/>
+            <br/>
         <h2>Gandi Server index</h2>
             <br/>
             <a href="<?php echo admin_url('admin.php?page=listGandiServer'); ?>">Gandi Server list</a><br/>
