@@ -117,6 +117,10 @@ if ( is_admin() ) {
         add_submenu_page(null, 'Create Simple Hosting', 'Create', 'manage_options', 'createSimpleHosting', 'createSimpleHosting');
         add_submenu_page(null, 'View Simple Hosting', 'View', 'manage_options', 'viewSimpleHosting', 'viewSimpleHosting');
 
+        add_submenu_page(null, 'Config Gandi Server', 'Config', 'manage_options', 'configGandiServer', 'configGandiServer');
+        add_submenu_page(null, 'List Gandi Server', 'List', 'manage_options', 'listGandiServer', 'listGandiServer');
+        add_submenu_page(null, 'Index Gandi Server', 'Index', 'manage_options', 'indexGandiServer', 'indexGandiServer');
+ 
     }
 
     add_action('admin_menu','gandihosting_menu');
@@ -229,6 +233,7 @@ require_once(ROOTDIR . 'api/general/configAPI.php');
 require_once(ROOTDIR . 'api/general/general.php');
 
 require_once(ROOTDIR . 'product/hosting/indexHosting.php');
+
 require_once(ROOTDIR . 'product/hosting/paas/simplehosting/indexSimpleHosting.php');
 require_once(ROOTDIR . 'product/hosting/paas/simplehosting/configSimpleHosting.php');
 require_once(ROOTDIR . 'product/hosting/paas/simplehosting/listSimpleHosting.php');
@@ -236,5 +241,7 @@ require_once(ROOTDIR . 'product/hosting/paas/simplehosting/createSimpleHosting.p
 require_once(ROOTDIR . 'product/hosting/paas/simplehosting/updateSimpleHosting.php');
 require_once(ROOTDIR . 'product/hosting/paas/simplehosting/viewSimpleHosting.php');
 
-
+require_once(ROOTDIR . 'product/hosting/iaas/gandiserver/indexGandiServer.php');
+require_once(ROOTDIR . 'product/hosting/iaas/gandiserver/configGandiServer.php');
+require_once(ROOTDIR . 'product/hosting/iaas/gandiserver/listGandiServer.php');
 ?>

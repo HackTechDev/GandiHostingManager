@@ -20,4 +20,17 @@ function paasList() {
     return $result;
 }
 
+
+function iaasList() {
+     $apiConnect = XML_RPC2_Client::create(
+            'https://rpc.gandi.net/xmlrpc/',
+            array( 'prefix' => 'hosting.', 'sslverify' => False )
+        );
+
+    $result = $apiConnect->__call('disk.list', array(APIKEY));
+    return $result;
+   
+}
+
+
 ?>
