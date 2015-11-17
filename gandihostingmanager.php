@@ -106,9 +106,11 @@ if ( is_admin() ) {
     function gandihosting_menu() {
         add_options_page('Gandi Hosting Manager', 'Gandi Hosting Manager', 'administrator', basename(__FILE__), 'gandihosting_option');
 
-        add_menu_page('Gandi Hosting Manager', 'Gandi Hosting Manager', 'manage_options', 'indexHosting', 'indexHosting');
+        //add_menu_page('Gandi Hosting Manager', 'Gandi Hosting Manager', 'manage_options', 'indexHosting', 'indexHosting');
         
+        add_menu_page('Gandi Hosting Manager', 'Gandi Hosting Manager', 'manage_options', 'indexProduct', 'indexProduct');
         
+
         //this submenu is HIDDEN, however, we need to add it anyways
         add_submenu_page(null, 'Update Simple Hosting', 'Update', 'manage_options', 'updateSimpleHosting', 'updateSimpleHosting');
         add_submenu_page(null, 'Config Simple Hosting', 'Config', 'manage_options', 'configSimpleHosting', 'configSimpleHosting');
@@ -231,6 +233,8 @@ add_filter("plugin_action_links_$plugin", 'gandihosting_settings_link' );
 define('ROOTDIR', plugin_dir_path(__FILE__));
 require_once(ROOTDIR . 'api/general/configAPI.php');
 require_once(ROOTDIR . 'api/general/general.php');
+
+require_once(ROOTDIR . 'product/indexProduct.php');
 
 require_once(ROOTDIR . 'product/hosting/indexHosting.php');
 
